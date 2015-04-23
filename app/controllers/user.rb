@@ -8,9 +8,6 @@ post '/users/login' do
   username = params[:user][:username]
   input_password = params[:user][:password]
 
-  @user = User.authenticate(username, input_password)
-  @user = User.find_by(username: username)
-
   if User.authenticate(username, input_password)
     session[:user_id] = @user.id
     redirect homepage
@@ -27,6 +24,7 @@ end
 
 post '/users/new' do
   @user = User.new(params[:user])
+  puts params
   if @user.save
     session[:user_id] = @user.id
     redirect homepage
