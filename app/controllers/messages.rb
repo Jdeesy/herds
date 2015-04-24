@@ -9,7 +9,7 @@ end
 
 post '/messages/new' do
   puts params
-  reciever = User.find_by(username: params[:reciever])
+  reciever = User.find(params[:reciever])
   text= params[:message]
   message = Message.new(sender: current_user, reciever: reciever, message: text)
   if message.save

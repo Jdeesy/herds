@@ -3,10 +3,10 @@
     <select name="reciever">
       <% @user.herds.each do |herd| %>
         <!-- Polymorphic to send message to herd -->
-        <option value="<%= herd.name %>"><%= herd.name %></option>
+        <option value="<%= herd.id %>"><%= herd.name %></option>
         <% herd.users.each do |user| %>
           <% if user != @user %>
-            <option value="<%= user.username %>"><%= "#{user.username} - #{herd.name}" %></option>
+            <option value="<%= user.id %>"><%= "#{user.username} - #{herd.name}" %></option>
           <% end %>
         <% end %>
       <% end %>
