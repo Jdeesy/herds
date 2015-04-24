@@ -1,0 +1,22 @@
+<div class="container">
+  <form id="message_form" action="/messages/new" method="post">
+    <select name="reciever">
+      <% @user.herds.each do |herd| %>
+        <!-- Polymorphic to send message to herd -->
+        <option value="<%= herd.name %>"><%= herd.name %></option>
+        <% herd.users.each do |user| %>
+          <% if user != @user %>
+            <option value="<%= user.username %>"><%= "#{user.username} - #{herd.name}" %></option>
+          <% end %>
+        <% end %>
+      <% end %>
+    </select>
+
+    <br>
+    <textarea rows="4" cols="50" name="message" form="message_form"></textarea>
+    <br>
+    <input type="submit" value="Send Message">
+  </form>
+</div>
+
+
