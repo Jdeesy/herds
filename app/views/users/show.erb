@@ -9,9 +9,12 @@
   </div>
 
   <div id="users_messages">
-    <h3>Joined Herds</h3>
-    <% @user.herds.each do |herd| %>
-      <a href="/herds/<%= herd.id %>"><%= herd.name %></a>
+    <h3>Recieved Messages</h3>
+    <% @user.recieved_messages.each do |message| %>
+      <p><a href="/users/<%= message.sender.id %>"><%= message.sender.username %></a></p>
+      <p><%= message.message %></p>
     <% end %>
   </div>
+
+  <a href="/messages/new"><button>Send A Message</button></a>
 </div>

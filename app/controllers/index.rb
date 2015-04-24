@@ -1,5 +1,5 @@
 get '/' do
-  # session_logout
+  session_logout
   erb :index
 end
 

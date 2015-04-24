@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :users_herds, class_name: "UsersHerd"
   has_many :herds, through: :users_herds
+  has_many :sent_messages, class_name: "Message", foreign_key: :sender_id
+  has_many :recieved_messages, class_name: "Message", foreign_key: :reciever_id
 
   validates :username, :presence => true,
                        :uniqueness => true
