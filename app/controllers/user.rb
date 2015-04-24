@@ -4,15 +4,13 @@ get '/users/login' do
 end
 
 post '/users/login' do
-  puts params
-  username = params[:user][:username]
-  input_password = params[:user][:password]
-
-  if User.authenticate(username, input_password)
-    session[:user_id] = @user.id
+  user = User.authenticate(params[:user][:username], 
+                           params[:user][:password])
+  if user
+    session[:user_id] = user.id
     redirect homepage
   else
-    @errors = ["Invalid email/password"]
+    @errors = ["Invalid username/password"]
     erb :index
   end
 end
@@ -24,7 +22,6 @@ end
 
 post '/users/new' do
   @user = User.new(params[:user])
-  puts params
   if @user.save
     session[:user_id] = @user.id
     redirect homepage
@@ -36,7 +33,7 @@ post '/users/new' do
 end
 
 get '/users/logout' do
-  session[:user_id] = nil
+  session_logout
   redirect homepage
 end
 
