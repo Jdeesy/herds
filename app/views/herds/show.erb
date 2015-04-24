@@ -1,0 +1,6 @@
+<div class="container">
+  <h1><%= @herd.name %></h1>
+  <% @herd.users.each do |user| %>
+    <%= user.username %>
+  <% end %>
+</div>

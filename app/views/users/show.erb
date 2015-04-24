@@ -1,3 +1,17 @@
 <div class="container">
-  <h1>USER HOMEPAGE</h1>
+  <h1><%= @user.username %> Homepage</h1>
+
+  <div id="users_herds">
+    <h3>Joined Herds</h3>
+    <% @user.herds.each do |herd| %>
+      <a href="/herds/<%= herd.id %>"><%= herd.name %></a>
+    <% end %>
+  </div>
+
+  <div id="users_messages">
+    <h3>Joined Herds</h3>
+    <% @user.herds.each do |herd| %>
+      <a href="/herds/<%= herd.id %>"><%= herd.name %></a>
+    <% end %>
+  </div>
 </div>

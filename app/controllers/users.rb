@@ -4,7 +4,7 @@ get '/users/login' do
 end
 
 post '/users/login' do
-  user = User.authenticate(params[:user][:username], 
+  user = User.authenticate(params[:user][:username],
                            params[:user][:password])
   if user
     session[:user_id] = user.id
@@ -38,5 +38,6 @@ get '/users/logout' do
 end
 
 get '/users/:id' do
+  @user = User.find(params[:id])
   erb :"users/show"
 end

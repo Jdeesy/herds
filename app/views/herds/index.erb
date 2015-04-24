@@ -1,0 +1,24 @@
+<div id="columns" class="container">
+  <h1 id="herds">Herds</h1>
+  <div>
+    <!-- <p>Join Herd</p> -->
+    <form action="/herds" method="post">
+      <input id="join" type="submit" value="Join Herd">
+      <select name="name">
+        <% @herds.each do |herd| %>
+          <%= herd.name %>
+          <option value="<%= herd.name %>"><%= herd.name %></option>
+        <% end %>
+      </select>
+    </form>
+  </div>
+
+  <!-- Place holder until columns work -->
+  <br><br><br><br><br><br>
+
+  <div>
+    <a href="/herds/new">Create Herd</a>
+  </div>
+</div>
+
+
