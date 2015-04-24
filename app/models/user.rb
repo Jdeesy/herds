@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   include BCrypt
-  #############
-  # relations #
-  #############
+
+  has_many :users_herds, class_name: "UsersHerd"
+  has_many :herds, through: :users_herds
+
   validates :username, :presence => true,
                        :uniqueness => true
   validates :email,    :presence => true,
