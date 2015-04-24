@@ -6,6 +6,27 @@
   border-radius: 15px 50px 30px;
 }
 
+#join {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#users_herds a{
+  display: block;
+  margin-bottom: 5px;
+}
+
+/*#columns {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+
+#herds {
+  -webkit-column-span: all;
+  column-span: all;
+}
+*/
 .errors {
   color: #FF9800;
   font-size: 1.25em;
@@ -69,7 +90,7 @@ a:link, a:visited {
 
 a:hover, input[type="submit"]:hover, button:hover{
   color: #FF9800;
-  text-shadow: 2px 2px #263248;
+  text-shadow: 1px 1px #263248;
 }
 
 button {

@@ -1,6 +1,10 @@
 # Change this to be your homepage path
 def homepage
- "/"
+  if current_user
+    "/herds"
+  else
+    "/"
+  end
 end
 # Calls the current user or defines the current user
 def current_user
